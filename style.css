@@ -1,63 +1,106 @@
-/* Genel Sayfa Stilleri */
-body {
-    font-family: Arial, sans-serif;
+/* Temel reset */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
-    color: #333;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow-x: hidden;
 }
 
 header {
-    background-color: #222;
-    color: white;
-    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
     padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    animation: glow 3s infinite alternate;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2.5em;
+    font-size: 3rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #ff512f, #dd2476);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 header p {
-    font-size: 1.2em;
+    font-size: 1.2rem;
     margin-top: 10px;
-}
-
-/* Discord Sunucuları Listesi */
-#discord-servers {
-    margin: 20px auto;
-    width: 90%;
-    max-width: 600px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    font-style: italic;
 }
 
 #discord-servers ul {
-    list-style-type: none;
-    padding: 0;
+    list-style: none;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
-#discord-servers ul li {
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-    text-align: center;
+#discord-servers li {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#discord-servers ul li a {
+#discord-servers li:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+#discord-servers a {
     text-decoration: none;
-    color: #4CAF50;
+    color: #fff;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
 }
 
-#discord-servers ul li a:hover {
-    color: #45a049;
-    text-decoration: underline;
+#discord-servers a:hover {
+    color: #fdbb2d;
 }
 
-/* Son Liste Elemanı */
-#discord-servers ul li:last-child {
-    border-bottom: none;
+/* Glow effect animation */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    #discord-servers ul {
+        gap: 15px;
+    }
+
+    #discord-servers li {
+        padding: 10px 15px;
+    }
+
+    #discord-servers a {
+        font-size: 1rem;
+    }
 }
